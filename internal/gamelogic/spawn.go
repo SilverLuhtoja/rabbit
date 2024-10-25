@@ -13,13 +13,13 @@ func (gs *GameState) CommandSpawn(words []string) error {
 	locationName := words[1]
 	locations := getAllLocations()
 	if _, ok := locations[Location(locationName)]; !ok {
-		return fmt.Errorf("error: %s is not a valid location", locationName)
+		return fmt.Errorf("error: %s is not a valid location. Valid locations are: %v", locationName, locations)
 	}
 
 	rank := words[2]
 	units := getAllRanks()
 	if _, ok := units[UnitRank(rank)]; !ok {
-		return fmt.Errorf("error: %s is not a valid unit", rank)
+		return fmt.Errorf("error: %s is not a valid unit. Valid units are: %v", rank, units)
 	}
 
 	id := len(gs.getUnitsSnap()) + 1

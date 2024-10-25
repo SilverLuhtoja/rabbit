@@ -14,6 +14,14 @@ case "$1" in
         echo "Fetching logs for RabbitMQ container..."
         docker logs -f rabbitmq
         ;;
+    server)
+        echo "Starting server...."
+        go run ./cmd/server
+        ;;
+    client)
+        echo "Starting client...."
+        go run ./cmd/client
+        ;;
     *)
         echo "Usage: $0 {start|stop|logs}"
         exit 1
